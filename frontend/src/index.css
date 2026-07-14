@@ -1,0 +1,167 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap');
+
+:root {
+  --ink: #17213A;
+  --slate: #3D4A66;
+  --slate-soft: #6B7690;
+  --paper: #F1EFE7;
+  --paper-raised: #FAF9F4;
+  --line: #D9D5C7;
+  --blueprint: #2C5F8A;
+  --blueprint-dark: #1F4463;
+  --amber: #C9762A;
+  --amber-soft: #F3E1CB;
+  --red: #B4432F;
+  --red-soft: #F4DDD6;
+  --green: #4E7A51;
+  --green-soft: #DCE9DC;
+
+  --font-display: 'Space Grotesk', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  --radius: 3px;
+  --shadow: 0 1px 2px rgba(23, 33, 58, 0.08), 0 1px 0 rgba(23, 33, 58, 0.04);
+}
+
+* { box-sizing: border-box; }
+
+html, body, #root { height: 100%; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: inherit; }
+
+button, input, textarea, select {
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+::selection { background: var(--amber-soft); }
+
+:focus-visible {
+  outline: 2px solid var(--blueprint);
+  outline-offset: 2px;
+}
+
+.app-shell {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 24px;
+  width: 100%;
+}
+
+/* --- Buttons --- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 10px 18px;
+  border-radius: var(--radius);
+  border: 1px solid transparent;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: transform 0.08s ease, background 0.15s ease, border-color 0.15s ease;
+}
+.btn:active { transform: translateY(1px); }
+.btn-primary { background: var(--blueprint); color: #fff; }
+.btn-primary:hover { background: var(--blueprint-dark); }
+.btn-outline { background: transparent; color: var(--ink); border-color: var(--line); }
+.btn-outline:hover { border-color: var(--slate); }
+.btn-danger { background: transparent; color: var(--red); border-color: var(--red-soft); }
+.btn-danger:hover { background: var(--red-soft); }
+.btn-sm { padding: 6px 12px; font-size: 0.8rem; }
+.btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+/* --- Forms --- */
+.field { margin-bottom: 16px; }
+.field label {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--slate);
+  margin-bottom: 6px;
+}
+.field input,
+.field textarea,
+.field select {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--paper-raised);
+  color: var(--ink);
+}
+.field textarea { min-height: 96px; resize: vertical; }
+.field input:focus, .field textarea:focus, .field select:focus {
+  border-color: var(--blueprint);
+}
+
+/* --- Cards / panels --- */
+.panel {
+  background: var(--paper-raised);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+.panel-pad { padding: 24px; }
+
+.auth-shell {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--paper);
+  padding: 24px;
+}
+.auth-card { width: 100%; max-width: 400px; }
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 9px;
+  border-radius: 20px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+}
+.badge-open { background: var(--red-soft); color: var(--red); }
+.badge-inprogress { background: var(--amber-soft); color: var(--amber); }
+.badge-resolved { background: var(--green-soft); color: var(--green); }
+.badge-overdue { background: var(--ink); color: #fff; }
+.badge-priority-high { background: var(--red-soft); color: var(--red); }
+.badge-priority-medium { background: var(--amber-soft); color: var(--amber); }
+.badge-priority-low { background: var(--line); color: var(--slate); }
+
+.mono { font-family: var(--font-mono); }
+
+.error-text { color: var(--red); font-size: 0.85rem; margin-top: 4px; }
+
+.empty-state {
+  text-align: center;
+  padding: 48px 24px;
+  color: var(--slate-soft);
+}
+
+@media (max-width: 640px) {
+  .container { padding: 0 16px; }
+}
